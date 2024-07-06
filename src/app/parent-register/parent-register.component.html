@@ -1,0 +1,73 @@
+<div class="body">
+  <div class="stepper-wrapper">
+    <div class="stepper-item" [ngClass]="{'completed': step > 1, 'active': step === 1}">
+      <div class="step-counter">1</div>
+      <div class="step-name">First</div>
+    </div>
+    <div class="stepper-item" [ngClass]="{'completed': step > 2, 'active': step === 2}">
+      <div class="step-counter">2</div>
+      <div class="step-name">Second</div>
+    </div>
+    <div class="stepper-item" [ngClass]="{'completed': step > 3, 'active': step === 3}">
+      <div class="step-counter">3</div>
+      <div class="step-name">Third</div>
+    </div>
+  </div>
+
+  <form [formGroup]="registerForm" (ngSubmit)="saveParent()">
+    <!-- Step 1: Enter Email -->
+    <div *ngIf="step === 1" class="student">
+      <h1>Parent Registration</h1> <br>
+      <h3>Step 1: Enter Your Email</h3>
+      <br><br>
+      <div class="input-container mb-4 bg-body rounded-pill">
+        <input formControlName="email" name="email" type="email" class="form-control rounded-pill" placeholder="Enter your email here" required>
+        <span *ngIf="errors.email" class="text-danger">{{errors.email}}</span>
+      </div>
+      <div class="bbb">
+        <p class="regist-text">Do you have an account? <a routerLink="/login/parent">Sign in here</a></p>
+        <br>
+        <button type="button" class="btn btn-primary btn-lg col-md-3 rounded-pill" (click)="onNext()">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Enter Password -->
+    <div *ngIf="step === 2" class="student">
+      <h1>Parent Registration</h1> <br>
+      <h3>Step 2: Enter Your Password</h3>
+      <br><br>
+      <div class="input-container mb-4 bg-body rounded-pill">
+        <input type="password" formControlName="password" name="password" class="form-control rounded-pill" placeholder="Enter your password" required>
+        <span *ngIf="registerForm.controls['password'].errors" class="text-danger">Password is required and must be at least 8 characters long with special characters.</span>
+      </div>
+      <div class="bbb">
+        <p class="regist-text">Do you have an account? <a routerLink="/login/parent">Sign in here</a></p>
+        <br>
+        <button type="button" class="btn btn-light btn-lg rounded-pill" (click)="onPrevious()">Back</button>
+        <button type="button" class="btn btn-primary btn-lg rounded-pill" (click)="onNext()">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Enter Name -->
+    <div *ngIf="step === 3" class="student">
+      <h1>Parent Registration</h1>
+      <br>
+      <h3>Step 3: Enter Your Name</h3>
+      <p class="regist-text">Please enter your full name:</p>
+      <div class="input-container mb-4 bg-body rounded-pill">
+        <input type="text" formControlName="first_name" name="first_name" class="form-control rounded-pill" placeholder="First name" required>
+        <span *ngIf="errors.first_name" class="text-danger">{{errors.first_name}}</span>
+      </div>
+      <div class="input-container mb-4 bg-body rounded-pill">
+        <input type="text" formControlName="last_name" name="last_name" class="form-control rounded-pill" placeholder="Last name" required>
+        <span *ngIf="errors.last_name" class="text-danger">{{errors.last_name}}</span>
+      </div>
+      <div class="bbb">
+        <p class="regist-text">Do you have an account? <a routerLink="/login/parent">Sign in here</a></p>
+        <br>
+        <button type="button" class="btn btn-light btn-lg rounded-pill" (click)="onPrevious()">Back</button>
+        <button type="submit" class="btn btn-primary btn-lg rounded-pill">Finish</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,81 @@
+<!-- app.component.html -->
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<div class="linear-gr">
+  <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">SMS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-disabled="true" href="#">About Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Pages
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#school-facilities">School Facilities</a></li>
+              <li><a class="dropdown-item" href="#trackyourpreformance">Track your performance</a></li>
+              <li><a class="dropdown-item" href="#topstudent">Top Student</a></li>
+              <li><a class="dropdown-item" href="#popularteacher">Popular Teacher</a></li>
+              <li><a class="dropdown-item" href="#ournumbers">Our Numbers</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-disabled="true">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+      <form class="d-flex" role="search">
+        <button class="btn btn4 me-2" type="button" data-bs-toggle="modal" data-bs-target="#Modal">Register</button>
+        <a routerLink="/student/login"><button class="btn btn1" type="button">Sign in</button></a>
+      </form>
+    </div>
+  </nav>
+
+  <!-- Start modal -->
+  <div class="modal fade" id="Modal" aria-modal="true" role="dialog">
+    <div class="modal-dialog rounded-5">
+      <div class="modal-content rounded-5">
+        <div class="modal-header border-0">
+          <h1 class="modal-title fs-5 text-center" id="Modal">Choose account</h1>
+        </div>
+        <div class="modal-body border-0">
+          <div class="container-fluid bd-example-row">
+            <div class="row center">
+              <div class="col-md-3 rounded-5 card-modal">
+                <button class="sign-account-type rounded-5 parent" (click)="selectAccount('parent')">
+                  <i class="i-modal fa-xl fa-solid fa-people-group" style="background-color: #1d1dcf;"></i>
+                  <h1 class="heed">Parent</h1>
+                  <p class="lorem-ipsum-modal">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
+                </button>
+              </div>
+              <div class="col-md-3 rounded-5 card-modal">
+                <button class="sign-account-type rounded-5 student" (click)="selectAccount('student')">
+                  <i class="i-modal fa-xl fa-solid fa-user-graduate"></i>
+                  <h1 class="heed">Student</h1>
+                  <p class="lorem-ipsum-modal">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center border-0">
+          <div class="btn-next">
+            <button type="button" class="next" data-bs-dismiss="modal" (click)="onNext()">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End modal -->
+</div>

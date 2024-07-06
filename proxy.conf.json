@@ -1,0 +1,10 @@
+{
+  "/**": {
+    "target": "http://edumang.000webhostapp.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "timeout": 60000,
+    "proxyTimeout": 60000
+  }
+}
